@@ -1,17 +1,45 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@model www.exclusivepainters.co.nz.Models.ContactForm
+@{
+    ViewBag.Title = "ContactForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- Contact Info Start -->
+    <section class="contact-info-area w-padding2">
+
+        <div class="container">
+            <div class="row" style="justify-content:space-between!important;">
+                <div class=" col-sm-6 col-md-6">
+                    <div class="contact-caption mb-50">
+                        <h3>If Not Now, When? Let’s Work Together!</h3>
+                        <p>Consectetur adipiscing elit, sed do eiusmod tempor ididunt ut labore et dolore magna aliqua. Quis ipsum suspendisces gravida. Risus commodo viverra.</p>
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <form class="contact-wrapper" style="padding:0px 15px;">
+                        @Html.TextBoxFor(m => m.SenderName, new { @class = "form-control", placeholder="Name" })
+
+                        @Html.TextBoxFor(m => m.SenderEmail, new { @class = "form-control",placeholder="Email" })
+
+                        @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", placeholder="Mobile" })
+                        @Html.TextBoxFor(m => m.Message, new { @class = "form-control", placeholder="Your Message" })
+
+
+
+                        <button type="submit" class="btn submit-btn2" value="Send">Send Message</button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Contact Info End -->
+
+}
+

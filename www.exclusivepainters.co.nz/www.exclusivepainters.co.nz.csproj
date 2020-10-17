@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -45,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -127,9 +134,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\ExclusivePaintersContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\ContactForm.cs" />
+    <Compile Include="Models\EmployeeForm.cs" />
+    <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -137,12 +150,73 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\banners\1.jpg" />
+    <Content Include="Content\Images\banners\10.jpg" />
+    <Content Include="Content\Images\banners\2.jpg" />
+    <Content Include="Content\Images\banners\3.jpg" />
+    <Content Include="Content\Images\banners\4.jpg" />
+    <Content Include="Content\Images\banners\5.jpg" />
+    <Content Include="Content\Images\banners\6.jpg" />
+    <Content Include="Content\Images\banners\7.jpg" />
+    <Content Include="Content\Images\banners\8.jpg" />
+    <Content Include="Content\Images\banners\9.jpg" />
+    <Content Include="Content\Images\Exterior\ex1.jpg" />
+    <Content Include="Content\Images\Exterior\ex2.jpg" />
+    <Content Include="Content\Images\Exterior\ex22.jpg" />
+    <Content Include="Content\Images\Exterior\ex3.jpg" />
+    <Content Include="Content\Images\Exterior\ex33.jpg" />
+    <Content Include="Content\Images\Exterior\ex4.jpg" />
+    <Content Include="Content\Images\Exterior\ex5.jpg" />
+    <Content Include="Content\Images\Exterior\ex55.jpg" />
+    <Content Include="Content\Images\Exterior\ex555.jpg" />
+    <Content Include="Content\Images\Exterior\ex5555.jpg" />
+    <Content Include="Content\Images\Exterior\ex6.jpg" />
+    <Content Include="Content\Images\Exterior\ex66.jpg" />
+    <Content Include="Content\Images\Interior\in1.jpg" />
+    <Content Include="Content\Images\Interior\in2.jpg" />
+    <Content Include="Content\Images\Interior\in3.jpg" />
+    <Content Include="Content\Images\Interior\in4.jpg" />
+    <Content Include="Content\Images\Interior\in5.jpg" />
+    <Content Include="Content\Images\Interior\in6.jpg" />
+    <Content Include="Content\Images\Interior\in66.jpg" />
+    <Content Include="Content\Images\logo\5facefde0258222408f64dac9af87dd7.png" />
+    <Content Include="Content\Images\logo\Exclusive Painters Logo %281%29.jpg" />
+    <Content Include="Content\Images\logo\Exclusive Painters Logo %284%29.png" />
+    <Content Include="Content\Images\logo\Exclusive Painters Logo %285%29.png" />
+    <Content Include="Content\Images\logo\Exclusive Painters Logo final.svg" />
+    <Content Include="Content\Images\logo\ExclusivePaintersLogo.png" />
+    <Content Include="Content\Images\logo\logo.png" />
+    <Content Include="Content\Images\paintingbrand\5year warranty.png" />
+    <Content Include="Content\Images\paintingbrand\aalto.jpg" />
+    <Content Include="Content\Images\paintingbrand\dulux.jpg" />
+    <Content Include="Content\Images\paintingbrand\ecodec.png" />
+    <Content Include="Content\Images\paintingbrand\master painter.png" />
+    <Content Include="Content\Images\paintingbrand\porters.jpg" />
+    <Content Include="Content\Images\paintingbrand\resene.jpg" />
+    <Content Include="Content\Images\paintingbrand\sikkens.jpg" />
+    <Content Include="Content\Images\paintingbrand\wattyl.jpg" />
+    <Content Include="Content\Images\Renovation&amp;Roof\r1.jpg" />
+    <Content Include="Content\Images\Renovation&amp;Roof\r2.jpg" />
+    <Content Include="Content\Images\Renovation&amp;Roof\Renovating.jpg" />
+    <Content Include="Content\Images\Renovation&amp;Roof\Renovating2.jpg" />
+    <Content Include="Content\Images\Renovation&amp;Roof\Renovating3.jpg" />
+    <Content Include="Content\Images\Renovation&amp;Roof\roof.jpg" />
+    <Content Include="Content\Images\section\section_bg02.jpg" />
+    <Content Include="Content\Images\section\section_bg04.jpg" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -154,7 +228,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -166,12 +242,12 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\SuccessMessage.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -219,7 +295,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
