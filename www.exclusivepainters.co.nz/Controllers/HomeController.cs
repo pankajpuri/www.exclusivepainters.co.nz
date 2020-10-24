@@ -23,6 +23,10 @@ namespace www.exclusivepainters.co.nz.Controllers
             return View();
         }
 
+        public ActionResult Testimonial()
+        {
+            return View();
+        }
       
         public  ActionResult Contact(ContactForm model)
         {

@@ -1,18 +1,64 @@
-﻿.btn-danger.disabled:hover,
-.btn-danger[disabled]:hover,
-fieldset[disabled] .btn-danger:hover,
-.btn-danger.disabled:focus,
-.btn-danger[disabled]:focus,
-fieldset[disabled] .btn-danger:focus,
-.btn-danger.disabled.focus,
-.btn-danger[disabled].focus,
-fieldset[disabled] .btn-danger.focus {
+﻿
+.secondNavTransition {
+    transition-timing-function: ease-in;
+    transition: all 0.05s;
+}
+
+#firstNav {
+    background-color: #1d1d1d;
+    padding-bottom: 12px;
+    visibility: visible;
+}
+
+#secondNav {
+    top: 50px;
+}
+
+.carousel-control {
+    width: 0;
+}
+
+#customfooter {
+    border-top: 1px solid #ffcccb;
+    border-bottom: 1px solid #ffcccb;
+    padding-top: 10px
+}
+
+.btn-danger.disabled:hover, .btn-danger[disabled]:hover, fieldset[disabled] .btn-danger:hover, .btn-danger.disabled:focus, .btn-danger[disabled]:focus, fieldset[disabled] .btn-danger:focus, .btn-danger.disabled.focus, .btn-danger[disabled].focus, fieldset[disabled] .btn-danger.focus {
     background-color: #d9534f;
     border-color: #d43f3a;
 }
+
+.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+    .btn-danger:hover {
+        color: #fff;
+        background-color: Red !important;
+        border-color: #ac2925;
+    }
+
+    .btn-danger:active:hover,
+    .btn-danger.active:hover,
+    .open > .dropdown-toggle.btn-danger:hover,
+    .btn-danger:active:focus,
+    .btn-danger.active:focus,
+    .open > .dropdown-toggle.btn-danger:focus,
+    .btn-danger:active.focus,
+    .btn-danger.active.focus,
+    .open > .dropdown-toggle.btn-danger.focus {
+        color: #fff;
+        background-color: #000000;
+        border-color: #761c19;
+    }
+
 input, textarea {
     max-width: inherit;
 }
+
 .navbar-inverse {
     background-color: #fff;
     border-color: #080808;
@@ -68,6 +114,7 @@ input, textarea {
         .navbar-inverse .navbar-toggle:focus {
             background-color: #333;
         }
+
 .product {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -153,6 +200,18 @@ input, textarea {
     border: none;
 }
 
+.testimonialImg {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    object-fit: contain;
+    height: 500px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url('../../Content/Images/banners/5.jpg');
+}
+
 .banner {
     display: flex;
     flex-direction: column;
@@ -227,7 +286,7 @@ input, textarea {
     }
 
 .single-cat {
-    border: 1px solid #e1ebf7;
+    border: none;
     border-radius: 6px;
     padding: 61px 22px;
     transition: all .4s ease-out 0s;
@@ -244,8 +303,9 @@ input, textarea {
     padding-top: 130px;
     padding-bottom: 125px;
 }
-.textAreaHeight{
-    height:100px!important;
+
+.textAreaHeight {
+    height: 100px !important;
 }
 
 .input {
@@ -262,42 +322,42 @@ input, textarea {
 }
 
 .contact-info-area {
-    
     background-image: url('../../Content/Images/section/section_bg04.jpg');
 }
-.contact-info-area h3 {
-    font-size: 48px;
-    display: block;
-    color: #000a2d;
-    font-weight: 600;
-    margin-top: 0px;
-    font-style: normal;
-    margin-bottom: 40px;
-    font-family: Rufina,serif;
-    line-height: 1.2;
-}
 
-.contact-info-area p {
-    font-family: Rubik,sans-serif;
-    color: #10285d;
-    font-size: 16px;
-    line-height: 30px;
-    margin-bottom: 40px;
-    font-weight: normal;
-}
+    .contact-info-area h3 {
+        font-size: 48px;
+        display: block;
+        color: #000a2d;
+        font-weight: 600;
+        margin-top: 0px;
+        font-style: normal;
+        margin-bottom: 40px;
+        font-family: Rufina,serif;
+        line-height: 1.2;
+    }
 
-.contact-info-area .contact-wrapper input {
-    background: #fff;
-    height: 60px;
-    width: 100%;
-    padding: 10px 26px;
-    color: #a3a3a3;
-    font-weight: 500;
-    text-transform: capitalize;
-    border-radius: 0px;
-    border: 0;
-    margin-bottom: 30px;
-}
+    .contact-info-area p {
+        font-family: Rubik,sans-serif;
+        color: #10285d;
+        font-size: 16px;
+        line-height: 30px;
+        margin-bottom: 40px;
+        font-weight: normal;
+    }
+
+    .contact-info-area .contact-wrapper input {
+        background: #fff;
+        height: 60px;
+        width: 100%;
+        padding: 10px 26px;
+        color: #a3a3a3;
+        font-weight: 500;
+        text-transform: capitalize;
+        border-radius: 0px;
+        border: 0;
+        margin-bottom: 30px;
+    }
 
 .contact-wrapper textarea {
     color: #a3a3a3;
@@ -328,14 +388,17 @@ input, textarea {
 
 
 .navbar-header {
-    padding: 12px;
+    padding: 0,12px,12px,12px;
+}
+
+.marginLeft100 {
+    margin-left: 100px;
 }
 
 .logo {
-    position: fixed;
     left: 20px;
     width: 130px;
-    top: 0;
+    margin-right: 100px;
     object-fit: contain;
 }
 
