@@ -1,0 +1,93 @@
+﻿@model IEnumerable<www.exclusivepainters.co.nz.Models.PersonDetail>
+
+
+
+
+<div id="PlaceHolderElement"></div>
+
+
+
+
+
+<div class="container" style="margin-top:50px">
+   <div class="row">
+       <div class="col-lg-12">
+           <p>
+               <button type="button" id="createModel" class="btn btn-primary" data-url="@Url.Action("Create")" data-toggle="modal" data-target="#myModal">Create New</button>
+
+               @*<a href="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Launch demo modal
+            </a>*@
+           </p>
+           <table class="table table-bordered table-striped">
+               <thead>
+                   <tr>
+
+                       <th>
+                           @Html.DisplayNameFor(model => model.Register.FirstName)
+                       </th>
+                       <th>
+                           @Html.DisplayNameFor(model => model.Register.LastName)
+                       </th>
+                       <th>
+                           @Html.DisplayNameFor(model => model.Register.Mobile)
+                       </th>
+                       <th>
+                           @Html.DisplayNameFor(model => model.Register.EmailId)
+                       </th>
+                       <th>
+                           @Html.DisplayNameFor(model => model.Register.Password)
+                       </th>
+
+                   </tr>
+               </thead>
+               <tbody>
+
+                   @foreach (var item in Model)
+                   {
+                       <tr>
+                           <td>
+                               @Html.DisplayFor(modelItem => item.Register.FirstName)
+                           </td>
+                           <td>
+                               @Html.DisplayFor(modelItem => item.Register.LastName)
+                           </td>
+                           <td>
+                               @Html.DisplayFor(modelItem => item.Register.Mobile)
+                           </td>
+                           <td>
+                               @Html.DisplayFor(modelItem => item.Register.EmailId)
+                           </td>
+                           <td>
+                               @Html.DisplayFor(modelItem => item.Register.Password)
+                           </td>
+                           <td>
+                               @Html.DisplayFor(modelItem => item.Register.ConfirmPassword)
+                           </td>
+                           <td>
+                               @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                               @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                               @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                           </td>
+                       </tr>
+
+                   }
+               </tbody>
+           </table>
+       </div>
+   </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var PlaceHolderElement = $('#PlaceHolderElement');
+        $('#createModel').click(function (event) {
+            console.log("I'm in");
+            var url = $(this).data('url');
+            $.get(url).done(function (data) {
+                PlaceHolderElement.html(data);
+                PlaceHolderElement.find('.modal').modal('show');
+            });
+        });
+
+    });
+</script>

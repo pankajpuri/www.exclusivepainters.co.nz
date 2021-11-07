@@ -1,6 +1,12 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.MetaDescription">
+    <meta name="keywords" content="@ViewBag.MetaKeywords">
+    <link rel="canonical" href="@ViewBag.CanonicalURL" />
+    <meta name="google-site-verification" content="RwkJI8xYU_WnOF3vKWBnHsmRl6v7aqr-At5tLWq14zk" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title -Exclusive Painters</title>
@@ -8,68 +14,65 @@
     <link href=@Url.Content("~/Content/font-awesome.css") rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
     <link href=@Url.Content("~/Content/custom.css") rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+
+
+    <!-- Google Tag Manager -->
+
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T9QQN37');</script>
+    <!-- End Google Tag Manager -->
     <style>
-       
+        .modal-title {
+            text-align: center;
+            font-size: large;
+            font-weight: 700;
+        }
+
+        .modal-header {
+            border-bottom: 0;
+        }
+
+        .navbar-toggle {
+            background-color: #333;
+        }
+
+        .popLogin {
+            justify-content: center;
+            display: flex;
+        }
+
+        .customeInputWidth {
+            max-width: 100%;
+        }
+
+        .marginTop {
+            margin-top: 10px;
+        }
+
+        .floatLeft {
+            float: left;
+        }
+
+        .floatRight {
+            float: right;
+        }
     </style>
 </head>
 <body>
 
-    <div id="firstNav" class="navbar-fixed-top" >
-        <div class=" col-md-6 col-sm-6">
-        </div>
-        <div class="col-md-6 col-sm-6">
-            <ul class="nav navbar-nav navbar-right">
-                <li>@Html.ActionLink("Login", "Index", "Home", new { @class = "btn btn-danger loginBtn" })</li>
-                <li>@Html.ActionLink("Get Free Quote", "Contact", "Home", new { @class = "btn btn-danger btn-xm getQuotationBtn" })</li>
-
-            </ul>
-        </div>
-
-    </div>
-    <div id="secondNav" class="navbar navbar-inverse " >
-
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    https://getbootstrap.com/docs/4.2/components/navs/#javascript-behavior
-                </button>
-                <a href="@Url.Action("Index", "Home")">
-                    <img class="logo nav" src="~/Content/Images/logo/logo.png" alt="" />
-                </a>
-
-            </div>
-
-            <div id="margin100" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav marginLeft100">
-
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { @class = "cool-link" })</li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle cool-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Interior Painting", "InteriorPainting", "Home")</li>
-                            <li role="separator" class="divider"></li>
-                            <li>@Html.ActionLink("Exterior Painting", "ExteriorPainting", "Home")</li>
-                            <li role="separator" class="divider"></li>
-                            <li>@Html.ActionLink("Roof Painting", "RoofPainting", "Home")</li>
-                            <li role="separator" class="divider"></li>
-                            <li>@Html.ActionLink("Renovation Work", "RenovatedWord", "Home")</li>
-                        </ul>
-                    </li>
-                    <li>@Html.ActionLink("About Us", "About", "Home", new { @class = "cool-link" })</li>
-                    <li>@Html.ActionLink("Career", "Career", "Home", new { @class = "cool-link" })</li>
-                    <li>@Html.ActionLink("Testimonial", "Testimonial", "Home", new { @class = "cool-link" })</li>
-                    <li>@Html.ActionLink("Contact Us", "Contact", "Home", new { @class = "cool-link" })</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
+    @Html.Partial("_Navbar")
     <div class="container-fluid">
+
         @RenderBody()
         <hr style="border:none" />
         <footer>
@@ -89,9 +92,12 @@
                         </div>
                         <div class="col-xs-12 col-md-8">
                             <div class="row">
-                                <div class="col-md-4" alt="" style="margin:10px;"><img class="row_poster" src="~/Content/Images/paintingbrand/master painter.png" alt="" /></div>
-                                <div class="col-md-4" alt="" style="margin:10px;"><img class="row_poster" src="~/Content/Images/paintingbrand/5year warranty.png" alt="" /></div>
-                                <div class="col-md-2" alt="" style="margin:10px;"><img class="row_poster" src="~/Content/Images/paintingbrand/ecodec.png" alt="" /></div>
+                                <div class="col-md-4" alt="" style="margin:10px;"><img class="row_poster" src="~/Content/Images/paintingbrand/resene.jpg" alt="" /></div>
+                                <div class="col-md-4" alt="" style="margin:10px;"><img class="row_poster" src="~/Content/Images/paintingbrand/dulux.jpg" alt="" /></div>
+
+                                <!--
+        <div class="col-md-2" alt="" style="margin:10px;"><img class="row_poster" src="~/Content/Images/paintingbrand/ecodec.png" alt="" /></div>
+    -->
                             </div>
                         </div>
 
@@ -103,11 +109,11 @@
                                 <i style="text-align:center">&copy; Copyright @DateTime.Now.Year - Exclusive Painters</i>
                             </li>
                             <li style="margin-right:40px">
-                                <a href="https://www.facebook.com/exlcusive.painters" class="hoverLine"> <i class="fa fa-facebook-square" style="font-size:20px"></i></a>
+                                <a href="https://www.facebook.com/exclusivepro.painters/" class="hoverLine"> <i class="fa fa-facebook-square" style="font-size:20px"></i></a>
                             </li>
-                            <li style="margin-right:40px">
-                                <i class="fa fa-instagram" style="font-size:20px"></i>
-                            </li>
+                           <li style="margin-right:40px"> <a href="https://www.instagram.com/exclusivepainters/" class="hoverLine">  <i class="fa fa-instagram" style="font-size:20px"></i></a>
+                            </li >
+                           
                             <li>
                                 <i class="fa fa-google-plus" style="font-size:20px"></i>
                             </li>
@@ -142,7 +148,7 @@
                 secondNav.style.top = "0px";
                 secondNav.classList.add("navbar-fixed-top");
                 secondNav.classList.add("secondNavTransition");
-                
+
 
             }
             else {
@@ -156,12 +162,6 @@
 
         };
 
-
-         /*  window.addEventListener("scroll", function () {
-                                    window.addEventListener("scroll", function () {
-                                        let header = document.querySelector("header");
-                                        header.classList.toggle('scrolling-active', window.scrollY > 100);
-                                    })*/
     </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

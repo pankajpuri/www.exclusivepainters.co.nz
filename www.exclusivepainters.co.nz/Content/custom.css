@@ -11,7 +11,7 @@
 }
 
 #secondNav {
-    top: 50px;
+    top: 62px;
 }
 
 .carousel-control {
@@ -54,7 +54,7 @@
         background-color: #000000;
         border-color: #761c19;
     }
-
+   
 input, textarea {
     max-width: inherit;
 }
@@ -87,15 +87,15 @@ input, textarea {
 
         .navbar-inverse .navbar-nav > li > a:hover,
         .navbar-inverse .navbar-nav > li > a:focus {
-            color: #dc354c;
+            color: #dc354c !important;
             font-weight: 600;
-            background-color: transparent;
         }
 
     .navbar-inverse .navbar-nav > .active > a,
     .navbar-inverse .navbar-nav > .active > a:hover,
     .navbar-inverse .navbar-nav > .active > a:focus {
         color: #fff;
+        
         background-color: #080808;
     }
 
@@ -106,15 +106,8 @@ input, textarea {
         background-color: transparent;
     }
 
-    .navbar-inverse .navbar-toggle {
-        border-color: #333;
-    }
-
-        .navbar-inverse .navbar-toggle:hover,
-        .navbar-inverse .navbar-toggle:focus {
-            background-color: #333;
-        }
-
+  
+ 
 .product {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -389,10 +382,12 @@ input, textarea {
 
 .navbar-header {
     padding: 0,12px,12px,12px;
+   
 }
 
 .marginLeft100 {
     margin-left: 100px;
+    border-top: none;
 }
 
 .logo {

@@ -56,6 +56,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -134,15 +136,47 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DAL\ExclusivePaintersContext.cs" />
+    <Compile Include="Controllers\PersonDetailsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\ContactForm.cs" />
-    <Compile Include="Models\EmployeeForm.cs" />
-    <Compile Include="Models\Job.cs" />
-    <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\Address.cs">
+      <DependentUpon>ExcPDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExcPDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExcPDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExcPDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExcPDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExcPDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExcPDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login.cs">
+      <DependentUpon>ExcPDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonDetail.cs">
+      <DependentUpon>ExcPDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Register.cs">
+      <DependentUpon>ExcPDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\EncrypPassword.cs" />
+    <Compile Include="ViewModels\ExclusiveViewModel.cs" />
+    <Compile Include="ViewModels\Login.cs" />
+    <Compile Include="ViewModels\ResetPassword.cs" />
+    <Compile Include="ViewModels\UserAddress.cs" />
+    <Compile Include="ViewModels\ContactForm.cs" />
+    <Compile Include="ViewModels\WorkSite.cs" />
+    <Compile Include="ViewModels\RegistrationForm.cs" />
+    <Compile Include="ViewModels\Status.cs" />
+    <Compile Include="ViewModels\Vaccancy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -167,7 +201,7 @@
     <Content Include="Content\Images\Exterior\ex2.jpg" />
     <Content Include="Content\Images\Exterior\ex22.jpg" />
     <Content Include="Content\Images\Exterior\ex3.jpg" />
-    <Content Include="Content\Images\Exterior\ex33.jpg" />
+    <Content Include="Content\Images\Exterior\ex33.jpeg" />
     <Content Include="Content\Images\Exterior\ex4.jpg" />
     <Content Include="Content\Images\Exterior\ex5.jpg" />
     <Content Include="Content\Images\Exterior\ex55.jpg" />
@@ -175,6 +209,7 @@
     <Content Include="Content\Images\Exterior\ex5555.jpg" />
     <Content Include="Content\Images\Exterior\ex6.jpg" />
     <Content Include="Content\Images\Exterior\ex66.jpg" />
+    <Content Include="Content\Images\Interior\in.jpg" />
     <Content Include="Content\Images\Interior\in1.jpg" />
     <Content Include="Content\Images\Interior\in2.jpg" />
     <Content Include="Content\Images\Interior\in3.jpg" />
@@ -182,13 +217,11 @@
     <Content Include="Content\Images\Interior\in5.jpg" />
     <Content Include="Content\Images\Interior\in6.jpg" />
     <Content Include="Content\Images\Interior\in66.jpg" />
-    <Content Include="Content\Images\logo\5facefde0258222408f64dac9af87dd7.png" />
-    <Content Include="Content\Images\logo\Exclusive Painters Logo %281%29.jpg" />
-    <Content Include="Content\Images\logo\Exclusive Painters Logo %284%29.png" />
-    <Content Include="Content\Images\logo\Exclusive Painters Logo %285%29.png" />
+    <Content Include="Content\Images\Interior\in7.jpg" />
     <Content Include="Content\Images\logo\Exclusive Painters Logo final.svg" />
-    <Content Include="Content\Images\logo\ExclusivePaintersLogo.png" />
-    <Content Include="Content\Images\logo\logo.png" />
+    <Content Include="Content\Images\logo\logo1.png" />
+    <Content Include="Content\Images\logo\logo2.png" />
+    <Content Include="Content\Images\logo\use this logo.png" />
     <Content Include="Content\Images\paintingbrand\5year warranty.png" />
     <Content Include="Content\Images\paintingbrand\aalto.jpg" />
     <Content Include="Content\Images\paintingbrand\dulux.jpg" />
@@ -201,8 +234,9 @@
     <Content Include="Content\Images\Renovation&amp;Roof\r1.jpg" />
     <Content Include="Content\Images\Renovation&amp;Roof\r2.jpg" />
     <Content Include="Content\Images\Renovation&amp;Roof\Renovating.jpg" />
+    <Content Include="Content\Images\Renovation&amp;Roof\Renovating1.jpg" />
     <Content Include="Content\Images\Renovation&amp;Roof\Renovating2.jpg" />
-    <Content Include="Content\Images\Renovation&amp;Roof\Renovating3.jpg" />
+    <Content Include="Content\Images\Renovation&amp;Roof\Renovating3.png" />
     <Content Include="Content\Images\Renovation&amp;Roof\roof.jpg" />
     <Content Include="Content\Images\section\section_bg02.jpg" />
     <Content Include="Content\Images\section\section_bg04.jpg" />
@@ -211,6 +245,18 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="google0c28ef64c1d2eb93.html" />
+    <Content Include="Models\ExcPDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ExcPDataModel.edmx</DependentUpon>
+      <LastGenOutput>ExcPDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ExcPDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ExcPDataModel.edmx</DependentUpon>
+      <LastGenOutput>ExcPDataModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="ReadMigration.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\FontAwesome.otf" />
@@ -218,9 +264,18 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <EntityDeploy Include="Models\ExcPDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ExcPDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ExcPDataModel.edmx.diagram">
+      <DependentUpon>ExcPDataModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\ExclusivePainters - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ExclusivePainters - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\ExclusivePainters - Web Deploy2.pubxml" />
+    <None Include="Properties\PublishProfiles\wwwexclusivepaintersconz - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\wwwexclusivepaintersconz20211107094915 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -250,6 +305,25 @@
     <Content Include="Views\Home\SuccessMessage.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Testimonial.cshtml" />
+    <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\EmployeeForms\ForgotPassword.cshtml" />
+    <Content Include="Views\EmployeeForms\Index.cshtml" />
+    <Content Include="Views\EmployeeForms\LoggedIn.cshtml" />
+    <Content Include="Views\EmployeeForms\Login.cshtml" />
+    <Content Include="Views\EmployeeForms\Register.cshtml" />
+    <Content Include="Views\EmployeeForms\ResetPassword.cshtml" />
+    <Content Include="Views\EmployeeForms\VerifyAccount.cshtml" />
+    <Content Include="Views\Logins\Create.cshtml" />
+    <Content Include="Views\Logins\Delete.cshtml" />
+    <Content Include="Views\Logins\Details.cshtml" />
+    <Content Include="Views\Logins\Edit.cshtml" />
+    <Content Include="Views\Logins\Index.cshtml" />
+    <Content Include="Views\Logins\Login.cshtml" />
+    <Content Include="Views\PersonDetails\Create.cshtml" />
+    <Content Include="Views\PersonDetails\Delete.cshtml" />
+    <Content Include="Views\PersonDetails\Details.cshtml" />
+    <Content Include="Views\PersonDetails\Edit.cshtml" />
+    <Content Include="Views\PersonDetails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -266,6 +340,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

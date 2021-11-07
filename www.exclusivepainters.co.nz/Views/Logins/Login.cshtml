@@ -1,0 +1,87 @@
+﻿@model www.exclusivepainters.co.nz.ViewModels.Login
+@{
+    Layout = null;
+}
+
+
+<div class="modal-content" style="width:535px">
+    <button style="padding:10px" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Log In to Your Account</h5>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <form id="loginForm" style="border:none;">
+            <div class="modal-body">
+
+                <div class="col-md-12 form-horizontal" style="border:none;">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group" style="border:none;">
+                        <div class="col-md-12 col-xs-6 popLogin">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control customeInputWidth", placeholder = "Email" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="border:none;">
+                        <div class="col-md-12 col-xs-6 popLogin">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control customeInputWidth", placeholder = "Password" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group ">
+                        <div class="col-md-6 col-xs-6">
+                            <div class="control-label floatLeft">
+
+                                @Html.CheckBoxFor(model => model.RememberMe)
+
+                                @Html.LabelFor(model => model.RememberMe)
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-6  ">
+                            <label class="floatRight">
+                                <span class="control-label" style="float:right">Forgot <a href="#">password?</a></span>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer" style="border:none;">
+                <div class="form-group">
+                    <div class="col-md-12 col-xs-6 popLogin">
+                        <input id="btnLogin" class="btn btn-default form-control btn-primary" type="submit" value="Login" onclick="loginUser()">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 popLogin" style="margin:25px;">
+                        <span class="control-label" style="float:right">Need an account? <a href="~/EmployeeForms/Register">Sign up</a></span>
+                    </label>
+                </div>
+            </div>
+        </form>
+    }
+
+</div>
+<script>
+    var loginUser = function () {
+        var data = $("#loginForm").serialize();
+
+        $.ajax({
+            type: "Post",
+            url: "/EmployeeForms/Login",
+            data: data,
+            success: function (response) {
+                alert("success");
+            }
+        })
+    }
+</script>
+   

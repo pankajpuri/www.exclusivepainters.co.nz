@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+Migration Steps
+ 
+Go to Visual Studio "Tools -> NuGet Package Manager -> Package Manager Console". Then execute the following command. 
+Enable-Migrations – ( We need to enable the migration, only then can we do the EF Code First Migration ).
+
+Add-Migration IntialDb (migration name) – ( Add a migration name and run the command ).
+
+Update-Database -Verbose — if it is successful then we can see this message (Running Seed method).
+
+Once Migration is done; then, we can see that the respective files are auto-generated under the “Migrations” folder.
+</body>
+</html>
